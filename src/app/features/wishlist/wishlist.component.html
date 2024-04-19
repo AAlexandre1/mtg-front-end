@@ -1,0 +1,19 @@
+<h1 class = "text-center">Wishlist</h1>
+<div class = "flex">
+  <div class = "row m-1 mt-3">
+    <div class = "col-3">
+      <div class = "filter mx-5 px-5 py-2 my-2">
+        <app-filter></app-filter>
+      </div>
+    </div>
+    <div class = "col">
+      <div class = "card-list row row-cols-1 row-cols-md-4 g-4 mx-3">
+        @for ( card of cards; track card.id ) {
+          <div class = "col">
+            <app-card [card] = "card"/>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

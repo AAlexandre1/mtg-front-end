@@ -1,0 +1,77 @@
+<!--
+<div class="filter">
+  <h2>Filter Cards</h2>
+  <div class="search-section">
+    <label for="searchText">Search:</label>
+    <input type="text" id="searchText" [(ngModel)]="filters.name" (keyup)="onSearchChange()">
+  </div>
+  <div class="set-filter">
+    <h3>Sets</h3>
+    <ul class="checkbox-list">
+      @for (set of sets; track set) {
+      <li>
+        <input type="checkbox" id="{{set}}" [(ngModel)]="filters.set[set]" (change)="onSetChange()">
+        <label for="{{set}}">{{set}}</label>
+      </li>}
+    </ul>
+  </div>
+  <button (click)="onApplyFilters()">Apply Filters</button>
+</div> -->
+
+
+<!-- <div class="filter-container">
+  <input type="text" [(ngModel)]="searchString" placeholder="Search Cards" (keyup)="onSearchChange($event.target.value)">
+  <select [(ngModel)]="selectedSet">
+    <option value="">All Sets</option>
+    <option *ngFor="let set of availableSets; trackBy: set"> {{ set }} </option>
+  </select>
+</div> -->
+
+
+
+<!-- <div class="filter-container">
+  <input #searchInput type="text" [(ngModel)]="searchString" placeholder="Search Cards" (keyup)="onSearchChange(searchInput.value)">
+    <div class="set-filter">
+    <h4>Filter by Set:</h4>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="allSets" name="setFilter" [(ngModel)]="selectedSet" value="">
+      <label class="form-check-label" for="allSets">All Sets</label>
+    </div>
+    </div>
+</div> -->
+
+<!-- <div class="filter-container">
+  <input #searchInput type="text" [(ngModel)]="searchString" placeholder="Search Cards">
+  <div class="set-filter">
+    <h4>Filter by Set:</h4>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="allSets" name="setFilter" [(ngModel)]="selectedSet" value="">
+      <label class="form-check-label" for="allSets">All Sets</label>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+</div> -->
+
+
+
+
+<div class="filter-container">
+  <input #searchInput type="text" [(ngModel)]="searchString" placeholder="Search Cards">
+  <div class="set-filter">
+    <h4>Filter by Set:</h4>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="Strixhaven" name="setFilter" value="Strixhaven">
+      <label class="form-check-label" for="Strixhaven">Strixhaven</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="Ravnica" name="setFilter" value="Ravnica">
+      <label class="form-check-label" for="Ravnica">Ravnica</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="Karlov" name="setFilter" value="Karlov">
+      <label class="form-check-label" for="Karlov">Karlov</label>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+</div>

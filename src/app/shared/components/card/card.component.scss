@@ -1,0 +1,80 @@
+// .card {
+// width: 18rem;
+// max-height: 300px;
+// }
+
+// .add-btn {
+//   opacity: 0;
+// }
+// .card:hover .add-btn {
+//   opacity: 1;
+// }
+
+ul li:empty {
+  display: none;
+}
+
+
+
+.card {
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #40465b;
+  transition: all 0.2s ease-in-out;
+  color: #ccc;
+}
+
+.card:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-info,
+.card:hover .add-btn,
+.card:hover .list-group-item,
+.card:hover {
+  background-color: #343747;
+}
+
+.card-header {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.card-info {
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #40465b;
+}
+
+.list-group-item {
+  background-color: #40465b;
+  border: none;
+  color: #bbb;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.add-btn {
+  background-color: #40465b;
+  color: #bbb;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background-color: #1a2023;
+  color: white
+}
+.card:hover .card-header,
+.card:hover .list-group-item {
+  color: white;
+}

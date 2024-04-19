@@ -1,0 +1,37 @@
+<div class = "card d-flex flex-column m-1 h-100 w-95">
+  <div class = "card-header lead">
+    <!-- lead makes the header stand out -->
+    {{ card.name }}
+  </div>
+  <div class = "card-info  overflow-y-scroll">
+    <ul class = "list-group">
+      <li class = "list-group-item">{{ card.set }}</li>
+      <li class = "list-group-item">{{ card.power }}</li>
+      <li class = "list-group-item">{{ card.toughness }}</li>
+      <li class = "list-group-item ">{{ card.description }}</li>
+      <!-- <li>{{ card.types?.name}}</li>
+      <li>{{ card.manaCosts?.mana_id }}</li> -->
+    </ul>
+  </div>
+  <div class = "buttons">
+    <button class = "btn add-btn mt-auto"> Add to Library </button>
+    <button class = "btn add-btn mt-auto"> Add to Wishlist </button>
+  </div>
+</div>
+
+
+<!-- <div class = "card m-4 h-100">
+  <div class = "card-header lead">
+    {{ card.name }}
+  </div>
+  <div class = "card-body  overflow-y-scroll">
+      <div class = "card-info">{{ card.set }}</div>
+      <div class = "card-info">{{ card.power }}</div>
+      <div class = "card-info">{{ card.toughness }}</div>
+      <div class = "card-info">{{ card.description }}</div>
+    <div class = "buttons">
+      <button class = "btn add-btn"> Add to Library </button>
+      <button class = "btn add-btn"> Add to Wishlist </button>
+    </div>
+  </div>
+</div> -->
