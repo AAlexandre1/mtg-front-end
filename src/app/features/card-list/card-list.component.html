@@ -3,16 +3,52 @@
   <div class = "row m-1 mt-3">
     <div class = "col-3">
       <div class = "filter mx-5 px-5 py-2 my-2">
-        <app-filter></app-filter>
+        <div class="filter-container">
+          <!-- <input #searchInput type="text" [(ngModel)]="searchString" placeholder="Search Cards"> -->
+          <div class="set-filter">
+            <h4>Filter by Set:</h4>
+            <select [(ngModel)]="selectedSet">
+              <option value = "" selected>
+                Select a Set
+              </option>
+              <option value = "Strixhaven">
+                Strixhaven
+              </option>
+              <option value = "Karlov">
+                Karlov
+              </option>
+              <option value = "Ravnica">
+                Ravnica
+              </option>
+
+            </select>
+
+
+            <!-- <div class="form-check">
+              <input class="form-check-input" type="radio" id="Strixhaven" name="setFilter" value="Strixhaven" ng-model = "string">
+              <label class="form-check-label" for="Strixhaven">Strixhaven</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="Ravnica" name="setFilter" value="Ravnica">
+              <label class="form-check-label" for="Ravnica">Ravnica</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="Karlov" name="setFilter" value="Karlov">
+              <label class="form-check-label" for="Karlov">Karlov</label>
+            </div> -->
+          </div>
+          <!-- <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button> -->
+        </div>
+
       </div>
     </div>
     <div class = "col">
-      <div class = "card-list row row-cols-1 row-cols-md-4 g-4 mx-3">
-        @for ( card of cards; track card.id ) {
+      <div class = "card-list row row-cols-1 row-cols-md-4 g-4 mx-3" *ngFor = 'let card of cards | filterCardsBySet: selectedSet'>
+        <!-- @for ( card of cards; track cards | filterCardsBySet: selectedSet) { -->
+
           <div class = "col">
             <app-card [card] = "card"/>
           </div>
-        }
       </div>
     </div>
   </div>

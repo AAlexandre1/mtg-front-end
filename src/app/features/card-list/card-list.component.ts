@@ -5,26 +5,29 @@ import { ManaCost } from '../../shared/models/mana-cost';
 import { CardService } from '../../core/services/card.service';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
-import { FilterComponent, FilterEvent } from '../../shared/components/filter/filter.component';
+import { FilterComponent } from '../../shared/components/filter/filter.component';
 import { FilterService, Filter} from '../../core/services/filter.service';
+import { FormsModule } from '@angular/forms';
+import { FilterCardsBySetPipe } from './filter-cards-by-set.pipe';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card-list',
   standalone: true,
-  imports: [CardComponent, HeaderComponent, FooterComponent, FilterComponent],
+  imports: [CardComponent, HeaderComponent, FooterComponent, FilterComponent, FormsModule, FilterCardsBySetPipe, CommonModule],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.scss',
   providers: [FilterComponent]
 })
 
 export class CardListComponent implements OnInit {
-
-  filters: Filter | undefined;
+  selectedSet: string = '';
+  // filters: Filter | undefined;
   // filters: Filter = {};
 
   cards: Card[] = this.cardService.cards;
 
-  constructor(private cardService: CardService, private filterService: FilterService, private filterComponent: FilterComponent) {
+  constructor(private cardService: CardService) {
 
   }
 
@@ -41,29 +44,29 @@ export class CardListComponent implements OnInit {
     // gets cards
 
 
-    this.filterComponent.filtersChange.subscribe((filterEvent: FilterEvent) => {
-      this.filterService.getFilteredCards(filterEvent.filters) // Pass filters from event
-      .subscribe({
-        next: (filteredCards: Card[]) => {
-          // Check if filtered cards are empty
-          if (filteredCards.length === 0) {
-            // Use default cards if no filters match
-            this.cards = this.cardService.cards; // Reassign fetched cards
-          } else {
-            this.cards = filteredCards; // Update with filtered cards
-          }
-        },
-        error: (error) => {
-          console.error('Unable to retrieve cards.', error);
-          this.cards = this.cardService.cards;
-        }
-      });
-    });
   }
+}
 
 
+  // this.filterComponent.filtersChange.subscribe((filterEvent: FilterEvent) => {
+  //   this.filterService.getFilteredCards(filterEvent.filters) // Pass filters from event
+  //   .subscribe({
+  //     next: (filteredCards: Card[]) => {
+  //       // Check if filtered cards are empty
+  //       if (filteredCards.length === 0) {
+  //         // Use default cards if no filters match
+  //         this.cards = this.cardService.cards; // Reassign fetched cards
+  //       } else {
+  //         this.cards = filteredCards; // Update with filtered cards
+  //       }
+  //     },
+  //     error: (error) => {
+  //       console.error('Unable to retrieve cards.', error);
+  //       this.cards = this.cardService.cards;
+  //     }
+  //   });
+  // });
 
-  
 
   // this.filterService.filtersChange.subscribe(filters => {
   //   this.filters = filters;
@@ -125,4 +128,4 @@ export class CardListComponent implements OnInit {
       //     .subscribe(filteredCards => this.cards = filteredCards);
       // }
 
-    }
+

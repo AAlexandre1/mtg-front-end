@@ -22,13 +22,17 @@ export class FilterComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  applyFilters() {
-    const filters = {
-      searchString: this.searchString,
-      selectedSet: this.selectedSet
-    };
-    this.filtersChange.emit(filters);
-  }
+  // applyFilters() {
+  //   const filters = {
+  //     searchString: this.searchString,
+  //     selectedSet: this.selectedSet
+  //   };
+  //   this.filtersChange.emit(filters);
+  // }
+
+  // getSelectedSet(setFilter) {
+  //   this.selectedSet = document.getElementsByName('setFilter')
+  // }
 }
 
 export class FilterEvent extends Event {
@@ -36,6 +40,7 @@ export class FilterEvent extends Event {
     super('');
   }
 }
+
 
 
 
